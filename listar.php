@@ -29,11 +29,11 @@ $result = pg_query($con, $query);
                 <?php
                 while ($row = pg_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>" . $row['nro_documento'] . "</td>";
-                    echo "<td>" . $row['nombre'] . "</td>";
-                    echo "<td>" . $row['apellidos'] . "</td>";
-                    echo "<td>" . $row['direccion'] . "</td>";
-                    echo "<td>" . $row['celular'] . "</td>";
+                    echo "<td>" . $row['doc'] . "</td>";
+                    echo "<td>" . $row['nom'] . "</td>";
+                    echo "<td>" . $row['ape'] . "</td>";
+                    echo "<td>" . $row['dir'] . "</td>";
+                    echo "<td>" . $row['cel'] . "</td>";
                     echo "</tr>";
                 }
                 ?>

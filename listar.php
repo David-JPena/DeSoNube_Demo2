@@ -1,18 +1,9 @@
 <?php
-// Incluye la función de conexión
 include("conexion.php");
+$con = conexion();
 
-// Realiza la conexión a PostgreSQL
-$db = conexion();
-
-if (!$db) {
-    die("Error en la conexión a la base de datos PostgreSQL.");
-}
-
-// Realiza una consulta SQL para obtener todos los registros
-$query = "SELECT * FROM persona"; // Reemplaza 'tu_tabla' con el nombre de tu tabla en la base de datos.
-$result = pg_query($db, $query);
-
+$query = "SELECT * FROM persona";
+$result = pg_query($con, $query);
 ?>
 
 <!doctype html>
@@ -36,14 +27,13 @@ $result = pg_query($db, $query);
             </thead>
             <tbody>
                 <?php
-                // Itera a través de los registros y muestra cada fila en la tabla
                 while ($row = pg_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>" . $row['doc'] . "</td>";
-                    echo "<td>" . $row['nom'] . "</td>";
-                    echo "<td>" . $row['ape'] . "</td>";
-                    echo "<td>" . $row['dir'] . "</td>";
-                    echo "<td>" . $row['cel'] . "</td>";
+                    echo "<td>" . $row['nro_documento'] . "</td>";
+                    echo "<td>" . $row['nombre'] . "</td>";
+                    echo "<td>" . $row['apellidos'] . "</td>";
+                    echo "<td>" . $row['direccion'] . "</td>";
+                    echo "<td>" . $row['celular'] . "</td>";
                     echo "</tr>";
                 }
                 ?>
